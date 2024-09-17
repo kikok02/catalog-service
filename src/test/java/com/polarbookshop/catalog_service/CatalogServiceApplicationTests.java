@@ -25,8 +25,8 @@ class CatalogServiceApplicationTests {
 				.exchange()
 				.expectStatus().isCreated()
 				.expectBody(Book.class).value(actualBook -> {
-					assertThat(actualBook).isNotNull();
-					assertThat(actualBook.isbn()).isEqualTo(expectedBook.isbn());
+					assertNotNull(actualBook);
+					assertEquals(actualBook.isbn(), expectedBook.isbn());
 				});
 	}
 
