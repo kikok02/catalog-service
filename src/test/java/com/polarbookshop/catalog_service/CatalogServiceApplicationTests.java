@@ -8,26 +8,26 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-//@SpringBootTest(
-//		webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
-//)
+@SpringBootTest(
+		webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
+)
 class CatalogServiceApplicationTests {
 	@Autowired
 	private WebTestClient webTestClient;
 
-//	@Test
-//	void whenPostRequestThenBookCreated() {
-//		var expectedBook = new Book("1231231231", "Title", "Author", 9.90);
-//		webTestClient
-//				.post()
-//				.uri("/books")
-//				.bodyValue(expectedBook)
-//				.exchange()
-//				.expectStatus().isCreated()
-//				.expectBody(Book.class).value(actualBook -> {
-//					assertNotNull(actualBook);
-//					assertEquals(actualBook.isbn(), expectedBook.isbn());
-//				});
-//	}
+	@Test
+	void whenPostRequestThenBookCreated() {
+		var expectedBook = new Book("1231231231", "Title", "Author", 9.90);
+		webTestClient
+				.post()
+				.uri("/books")
+				.bodyValue(expectedBook)
+				.exchange()
+				.expectStatus().isCreated()
+				.expectBody(Book.class).value(actualBook -> {
+					assertNotNull(actualBook);
+					assertEquals(actualBook.isbn(), expectedBook.isbn());
+				});
+	}
 
 }
